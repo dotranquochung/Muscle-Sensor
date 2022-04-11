@@ -8,12 +8,11 @@ Product: Grove EMG Detector
 
 Datasheet included in the directory
 
-Product details: https://www.digikey.com/en/products/detail/seeed-technology-co.,-ltd/101020058/5482548?utm_adgroup=Evaluation%20Boards%20-%20Expansion%20Boards%2C%20Daughter%20Cards&utm_source=google&utm_medium=cpc&utm_campaign=Shopping_Product_Development%20Boards%2C%20Kits%2C%20Programmers&utm_term=&utm_content=Evaluation%20Boards%20-%20Expansion%20Boards%2C%20Daughter%20Cards&gclid=Cj0KCQjwgMqSBhDCARIsAIIVN1Wdr39Iuarjbd22DZjf9EHTFMBl5sBXG7qMHbPO1WQELp8JyY4-gNcaAryhEALw_wcB
 --------------------------------------------------------------
 This directory will include these things:
 1. Datasheet
 2. C code to compile with arduino uno rev3 - atmega328p microcontroller
-3. Python file: script to compile
+3. Python file: script to compile C code file
 4. Wiring diagram
 5. Video demo
 --------------------------------------------------------------
