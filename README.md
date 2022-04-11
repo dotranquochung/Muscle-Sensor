@@ -20,6 +20,6 @@ Guide to compile:
 - Download the zip file
 - Edit the python file:
 	1. Edit the path_win_avr in python_script.py
-	example: path_win_avr = '[your root avr]\avr-gcc-11.1.0-x64-windows/avr-gcc-11.1.0-x64-windows/bin/'
+	example: path_win_avr = '[your root avr]/avr-gcc-11.1.0-x64-windows/avr-gcc-11.1.0-x64-windows/bin/'
 	3. Python installed
 	4. Run in cmd: [root of file keypad.c]\python compile_script.py 4
