@@ -13,7 +13,7 @@ This directory will include these things:
 1. Datasheet
 2. C code to compile with arduino uno rev3 - atmega328p microcontroller
 3. Python file: script to compile C code file
-4. Wiring diagram
+4. Circuit Design
 5. Video demo
 --------------------------------------------------------------
 Guide to compile:
