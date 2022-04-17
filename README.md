@@ -18,14 +18,14 @@ This directory will include these things:
 5. Circuit Design
 6. Video demo
 --------------------------------------------------------------
-Guide to compile:
+## Guide to compile:
 - Download the zip file
 - Edit the python file:
 	1. Edit the path_win_avr in python_script.py
 	example: path_win_avr = '[your root avr]/avr-gcc-11.1.0-x64-windows/avr-gcc-11.1.0-x64-windows/bin/'
 	3. Python installed
 	4. Run in cmd: [root of file keypad.c]\python compile_script.py 4
-Other way:
+## Other way:
 - [PATH TO AVR-GCC]\bin\avr-gcc.exe -Os -DF_CPU=16000000UL -mmcu=atmega328p -c -o doh_morsecode.o doh_morsecode.c
 - [PATH TO AVR-GCC]\bin\avr-gcc.exe -mmcu=atmega328p doh_morsecode.o -o doh_morsecode
 - [PATH TO AVR-GCC]\bin\avr-objcopy.exe -O ihex -R .eeprom doh_morsecode doh_morsecode.hex
