@@ -8,17 +8,23 @@
  * @resource: https://embedds.com/adc-on-atmega328-part-1/
  * @resource: https://maker.pro/custom/tutorial/how-to-take-analog-readings-with-an-avr-microcontroller
  */
+
+/**
+ * About the code:
+ * Method implemeting() is not working as desired
+ * Main method is explained in each line of code
+ * Input: Analog pin 0
+ * Output: Digital pin 2
+ */
 #include <stdio.h>
 #include <avr/io.h>
 #include <util/delay.h>
-#include <IO_Macros.h>
 #define USART_BAUDRATE 115200
 #define UBRR_VALUE (((F_CPU / (USART_BAUDRATE * 16UL))) - 1)
 #define VREF 5
 #define POT 10000
+#define TRIGPOINT 100
 
-//Set stream pointer
-FILE usart0_str = FDEV_SETUP_STREAM(USART0SendByte, NULL, _FDEV_SETUP_WRITE);
 //Functions prototype
 void USART0Init(void);
 int USART0SendByte(char u8Data, FILE *stream);
@@ -26,33 +32,24 @@ void InitADC();
 uint16_t ReadADC(uint8_t ADCchannel);
 void my_delay_ms(unsigned int delay);
 
-int main(void)
-{
-	// Configure PORT D bit 0 to an output
-	DDRD = 0b00000001;
+//Set stream pointer
+FILE usart0_str = FDEV_SETUP_STREAM(USART0SendByte, NULL, _FDEV_SETUP_WRITE);
 
-	// Configure PORT C bit 0 to an input
-	DDRC = 0b00000000;
 
-	// Configure ADC to be left justified, use AVCC as reference, and select ADC0 as ADC input
-	ADMUX = 0b01100000;
-	// Enable the ADC and set the prescaler to max value (128)
-	ADCSRA = 0b10000111;
+int main(void){
+	DDRD = 0b00000001; 	//Output
+	DDRC = 0b00000000; //Input
+	ADMUX = 0b01100000; //Select ADC0 as ADC input
+	ADCSRA = 0b10000111; //Prescaller
     while (1) {
 		// Start an ADC conversion by setting ADSC bit (bit 6)
 		ADCSRA = ADCSRA | (1 << ADSC);
 		// Wait until the ADSC bit has been cleared
 		while(ADCSRA & (1 << ADSC));
-
-		if(ADCH > TRIGPOINT){
-			// Turn LED on
-			PORTD = PORTD | (1 << PD2);
-		}
+		if(ADCH > TRIGPOINT)
+			PORTD = PORTD | (1 << PD2); // Turn LED on
 		else
-		{
-			// Turn LED off
-			PORTD = PORTD & ~(1 << PD2);
-		}
+			PORTD = PORTD & ~(1 << PD2); // Turn LED off
 	}
 }
 int implementing(){
@@ -64,15 +61,11 @@ int implementing(){
 		//reading band gap voltage and recalculating to volts
 		value=(double)VREF/1024*ReadADC(14);
 		if(value > 100)
-		{
-			// Turn LED on
-			PORTD = PORTD | (1 << PD2);
-		}
+			
+			PORTD = PORTD | (1 << PD2); // Turn LED on
 		else
-		{
-			// Turn LED off
-			PORTD = PORTD & ~(1 << PD2);
-		}
+			
+			PORTD = PORTD & ~(1 << PD2); // Turn LED off
 		_delay_ms(1000);
 	} 
 }
