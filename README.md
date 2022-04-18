@@ -15,7 +15,7 @@ This directory will include these things:
 	+ EMG Detector
 4. Python file: script to compile C code file
 5. Circuit Design
-6. Video demo
+6. Video demo: https://youtube.com/shorts/G9AUJioNAu4?feature=share
 --------------------------------------------------------------
 ## Guide to compile:
 - Download the zip file
