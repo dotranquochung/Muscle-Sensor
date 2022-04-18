@@ -31,6 +31,6 @@ This directory will include these things:
 - [PATH TO AVR-GCC]\bin\avrdude.exe -patmega328p -Pcom3 -carduino -D -U flash:w:[filename].hex:i
 - *Note: in my situation, I used modified to com3 to match my port com.
 --------------------------------------------------------------
-Ideas: Bicep to control the Servo Motor
+Ideas: Bicep to control the Servo Motor/LED
 - EMG Detector will measure the digital signals of the biceps
-- Servo Motor will operate based on the output of the EMG Detector
+- Servo Motor/LED will operate based on the output of the EMG Detector
