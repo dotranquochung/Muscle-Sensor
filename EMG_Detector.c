@@ -6,6 +6,7 @@
  * @date 2022-04-17
  * 
  * @resource: https://embedds.com/adc-on-atmega328-part-1/
+ * @resource: https://maker.pro/custom/tutorial/how-to-take-analog-readings-with-an-avr-microcontroller
  */
 #include <stdio.h>
 #include <avr/io.h>
@@ -37,20 +38,13 @@ int main(void)
 	ADMUX = 0b01100000;
 	// Enable the ADC and set the prescaler to max value (128)
 	ADCSRA = 0b10000111;
-
-
-
-	// Main program loop
-    while (1) 
-    {
+    while (1) {
 		// Start an ADC conversion by setting ADSC bit (bit 6)
 		ADCSRA = ADCSRA | (1 << ADSC);
-		
 		// Wait until the ADSC bit has been cleared
 		while(ADCSRA & (1 << ADSC));
 
-		if(ADCH > TRIGPOINT)
-		{
+		if(ADCH > TRIGPOINT){
 			// Turn LED on
 			PORTD = PORTD | (1 << PD2);
 		}
