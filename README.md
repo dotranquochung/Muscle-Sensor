@@ -13,7 +13,6 @@ This directory will include these things:
 1. Datasheet
 2. C codes to compile with arduino uno rev3 - atmega328p microcontroller
 	+ EMG Detector
-	+ Servo Motor
 4. Python file: script to compile C code file
 5. Circuit Design
 6. Video demo
