@@ -25,7 +25,7 @@ files_to_compile = ['EMG_Detector']
 directories = ['EMG_Detector']
 file_to_compile = 'EMG_Detector'
 if len(sys.argv) == 2:
-    com_port = 'com4'
+    com_port = 'com5'
 else:
 	com_port = sys.argv[2]
 
